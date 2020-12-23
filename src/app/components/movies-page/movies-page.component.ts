@@ -8,6 +8,7 @@ import { MovieService } from '../../services/movie.service';
 })
 export class MoviesPageComponent implements OnInit {
   movies: [];
+  filmPlaceholder = 'Films search';
 
   constructor(private movieService: MovieService) { }
 

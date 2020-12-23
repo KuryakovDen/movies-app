@@ -2,7 +2,10 @@
   <a class="movies__logo-link" href="#">
     <img class="movies__logo" src="/assets/movie.jpg">
   </a>
-  <input class="movies__search" type="text" placeholder="Film search">
+  <mat-form-field class="movies__search">
+    <mat-label>Clearable input</mat-label>
+    <input matInput type="text" [(ngModel)]="filmPlaceholder">
+  </mat-form-field>
   <a class="movies__favorites" href="#">Favourite films</a>
   <img class="movies__favorites-logo" src="/assets/star.png">
 </header>
