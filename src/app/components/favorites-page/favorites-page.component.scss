@@ -1,0 +1,22 @@
+.movies__header {
+  min-height: 80px;
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  background-color: cadetblue;
+  margin-bottom: 75px;
+}
+
+.movies__logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 30px;
+}
+
+.movies__logo-link {
+  height: 100px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

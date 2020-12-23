@@ -1,18 +1,18 @@
 <header class="movies__header">
-  <a class="movies__logo-link" href="#">
+  <a class="movies__logo-link" [routerLink]="['/']">
     <img class="movies__logo" src="/assets/movie.jpg">
   </a>
   <mat-form-field class="movies__search">
     <mat-label>Clearable input</mat-label>
     <input matInput type="text" [(ngModel)]="filmPlaceholder">
   </mat-form-field>
-  <a class="movies__favorites" href="#">Favourite films</a>
+  <a class="movies__favorites" [routerLink]="['/favorites']">Favourite films</a>
   <img class="movies__favorites-logo" src="/assets/star.png">
 </header>
 <div class="movies__list" *ngIf="movies">
   <div class="movies__item" *ngFor="let a of movies">
     <div class="movies__wrapper">
-      <a class="movies__title" href="#">{{ a.title }}</a>
+      <a class="movies__title" [routerLink]="['/film', a.id]">{{ a.title }}</a>
       <div class="movies__container" *ngIf="a.release_date">
         <span class="card-item">Release date: </span>
         <p class="movies__date">{{ a.release_date | date:'mediumDate' }}</p>
