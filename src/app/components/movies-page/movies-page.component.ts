@@ -15,7 +15,7 @@ export class MoviesPageComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getFilmsList().subscribe((data) => {
       this.movies = data.results;
-      console.log(data);
+      // console.log(data);
     });
   }
 }

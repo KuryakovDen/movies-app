@@ -20,3 +20,60 @@
     opacity: 0.8;
   }
 }
+
+.movies__film {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  min-height: 60%;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+.movies__recommended-films {
+  width: 25%;
+  height: 100%;
+  background-color: white;
+}
+
+.film__title {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  margin-right: 15px;
+}
+
+.film__poster {
+  width: 350px;
+  height: 500px;
+  margin-right: 50px;
+}
+
+.film__desc-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.film__desc-content {
+  margin-top: 20px;
+  margin-left: 7px;
+}
+
+.recommended-films__title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  height: 70%;
+  justify-content: space-between;
+  padding-left: 70px;
+  margin: auto;
+}
+
+.desc-container {
+  display: flex;
+}

@@ -3,3 +3,43 @@
     <img class="movies__logo" src="/assets/movie.jpg">
   </a>
 </header>
+<div class="container">
+  <div class="movies__film film" *ngIf="movie">
+    <img class="film__poster" src="http://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
+    <div class="film__description">
+      <p class="film__title">{{ movie.original_title }}</p>
+      <div class="desc-container">
+        <p class="film__desc-title">Genres:</p>
+        <p class="film__genre film__desc-content">{{ movie.genres[0].name }}</p>
+      </div>
+      <div class="desc-container">
+        <p class="film__desc-title">Production countries:</p>
+        <p class="film__countries film__desc-content">{{ movie.production_countries[0].name }}</p>
+      </div>
+      <div class="desc-container">
+        <p class="film__desc-title">Runtime (min):</p>
+        <p class="film__runtime film__desc-content">{{ movie.runtime }}</p>
+      </div>
+      <div class="desc-container">
+        <p class="film__desc-title">Release date:</p>
+        <p class="film__release-date film__desc-content">{{ movie.release_date | date:'mediumDate' }}</p>
+      </div>
+      <div class="desc-container">
+        <p class="film__desc-title">Vote count:</p>
+        <p class="film__vote-count film__desc-content">{{ movie.vote_count }}</p>
+      </div>
+      <div class="desc-container">
+        <p class="film__desc-title">Average vote:</p>
+        <p class="film__average-vote film__desc-content">{{ movie.vote_average }}</p>
+      </div>
+      <div class="desc-container">
+        <p class="film__desc-title">Overview:</p>
+        <p class="film__overview film__desc-content">{{ movie.overview }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="movies__recommended-films recommended-films">
+    <h2 class="recommended-films__title">Recommended films</h2>
+  </div>
+</div>
+
