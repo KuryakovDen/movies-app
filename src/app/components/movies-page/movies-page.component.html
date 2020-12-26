@@ -12,7 +12,11 @@
 <div class="movies__list" *ngIf="movies">
   <div class="movies__item" *ngFor="let movie of movies">
     <div class="movies__wrapper">
-      <a class="movies__title" [routerLink]="['/film', movie.id]" target="_blank">{{ movie.title }}</a>
+      <a class="movies__title"
+         [routerLink]="['/film', movie.id]"
+         target="_blank"
+         [queryParams]="{'filmId': movie.id}"
+      >{{ movie.title }}</a>
       <div class="movies__container" *ngIf="movie.release_date">
         <span class="card-item">Release date: </span>
         <p class="movies__date">{{ movie.release_date | date:'mediumDate' }}</p>
