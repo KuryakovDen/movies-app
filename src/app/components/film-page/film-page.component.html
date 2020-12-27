@@ -38,8 +38,12 @@
       </div>
     </div>
   </div>
-  <div class="movies__recommended-films recommended-films">
-    <h2 class="recommended-films__title">Recommended films</h2>
+  <div class="movies__recommended-films recommended">
+    <h2 class="recommended__title">Recommended films</h2>
+    <div class="recommended__film" *ngFor="let film of recommendedMovies">
+      <p class="recommended__film-title">{{ film.title }}</p>
+      <img class="recommended__film-poster" src="http://image.tmdb.org/t/p/w300/{{ film.poster_path }}">
+    </div>
   </div>
 </div>
 

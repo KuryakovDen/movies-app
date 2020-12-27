@@ -19,4 +19,8 @@ export class MovieService {
   getFilm(filmId: Params): Observable<any> {
     return this.http.get(`https://api.themoviedb.org/3/movie/${filmId}?${API_KEY}`);
   }
+
+  getRecommendedFilmsList(filmId: Params) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${filmId}/recommendations?${API_KEY}&language=en-US&page=1`);
+  }
 }
