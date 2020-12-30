@@ -1,32 +1,41 @@
 <header class="movies__header">
-  <a class="movies__logo-link" href="#">
+  <a class="movies__logo-link" [routerLink]="['/']">
     <img class="movies__logo" src="/assets/movie.jpg">
   </a>
-  <input class="movies__search" type="text" placeholder="Film search">
-  <a class="movies__favorites" href="#">Favourite films</a>
+  <mat-form-field class="movies__search">
+    <mat-label>Clearable input</mat-label>
+    <input matInput type="text" [(ngModel)]="filmPlaceholder">
+  </mat-form-field>
+  <a class="movies__favorites" [routerLink]="['/favorites']">Favourite films</a>
   <img class="movies__favorites-logo" src="/assets/star.png">
 </header>
 <div class="movies__list" *ngIf="movies">
-  <div class="movies__item" *ngFor="let a of movies">
+  <div class="movies__item" *ngFor="let movie of movies">
     <div class="movies__wrapper">
-      <a class="movies__title" href="#">{{ a.title }}</a>
-      <div class="movies__container" *ngIf="a.release_date">
+      <a class="movies__title"
+         [routerLink]="['/film', movie.id]"
+         target="_blank"
+         [queryParams]="{'filmId': movie.id}"
+      >{{ movie.title }}</a>
+      <div class="movies__container" *ngIf="movie.release_date">
         <span class="card-item">Release date: </span>
-        <p class="movies__date">{{ a.release_date | date:'mediumDate' }}</p>
+        <p class="movies__date">{{ movie.release_date | date:'mediumDate' }}</p>
       </div>
-      <div class="movies__container" *ngIf="a.vote_average">
+      <div class="movies__container" *ngIf="movie.vote_average">
         <span class="card-item">Vote: </span>
         <p class="movies__vote"
-           [ngClass]="{fail: a.vote_average <= 4, poorly: a.vote_average > 4 && a.vote_average < 6, good: a.vote_average >= 6 && a.vote_average < 8, fine: a.vote_average >= 8 }">
-          {{ a.vote_average }}
+           [ngClass]="{
+             fail: movie.vote_average <= 4,
+             poorly: movie.vote_average > 4 && movie.vote_average < 6,
+             good: movie.vote_average >= 6 && movie.vote_average < 8,
+             fine: movie.vote_average >= 8
+           }"
+        >
+          {{ movie.vote_average }}
         </p>
       </div>
-      <div class="movies__container" *ngIf="a.genre_ids">
-        <span class="card-item">Genres: </span>
-        <p class="movies__genre">{{ a.genre_ids }}</p>
-      </div>
     </div>
-    <img class="movies__image" src="http://image.tmdb.org/t/p/w300/{{ a.poster_path }}">
+    <img class="movies__image" src="http://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">
   </div>
 </div>
 
