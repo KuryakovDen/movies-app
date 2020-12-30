@@ -25,18 +25,14 @@
         <span class="card-item">Vote: </span>
         <p class="movies__vote"
            [ngClass]="{
-           fail: movie.vote_average <= 4,
-           poorly: movie.vote_average > 4 && movie.vote_average < 6,
-           good: movie.vote_average >= 6 && movie.vote_average < 8,
-           fine: movie.vote_average >= 8
+             fail: movie.vote_average <= 4,
+             poorly: movie.vote_average > 4 && movie.vote_average < 6,
+             good: movie.vote_average >= 6 && movie.vote_average < 8,
+             fine: movie.vote_average >= 8
            }"
         >
           {{ movie.vote_average }}
         </p>
-      </div>
-      <div class="movies__container" *ngIf="movie.genre_ids">
-        <span class="card-item">Genres: </span>
-        <p class="movies__genre">{{ movie.genre_ids }}</p>
       </div>
     </div>
     <img class="movies__image" src="http://image.tmdb.org/t/p/w300/{{ movie.poster_path }}">

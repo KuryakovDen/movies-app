@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
-import {ActivatedRoute} from '@angular/router';
+import {IMovie} from '../film-page/film-page.component';
 
 @Component({
   selector: 'app-movies-page',
@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./movies-page.component.scss']
 })
 export class MoviesPageComponent implements OnInit {
-  movies: [];
+  movies: IMovie[];
   filmPlaceholder = 'Films search';
 
   constructor(private movieService: MovieService) { }
@@ -16,7 +16,6 @@ export class MoviesPageComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getFilmsList().subscribe((data) => {
       this.movies = data.results;
-      // console.log(data);
     });
   }
 }
